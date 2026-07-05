@@ -1,0 +1,105 @@
+# Emergency Ride Recovery System (ERRS)
+
+## Product Design Case Study
+
+### Overview
+
+This is a product design proposal for ride-hailing applications such as Rapido.
+
+The goal is to solve a synchronization issue where one user (usually the driver or passenger) receives ride details while the other does not because of temporary network or server communication failures.
+
+---
+
+## Problem Statement
+
+During ride allocation, both the driver and passenger should receive identical ride information.
+
+However, due to network instability, delayed push notifications, or synchronization failures, the following situation may occur:
+
+* Driver receives ride details.
+* Passenger sees no assigned ride.
+* Both users become confused.
+* Ride may be cancelled even though it exists.
+* Customer support receives unnecessary complaints.
+
+This creates an inconsistent system state and a poor user experience.
+
+---
+
+## Proposed Solution
+
+### Emergency Ride Recovery System (ERRS)
+
+Instead of requiring users to cancel the ride, introduce a secure recovery mechanism.
+
+### Step 1 – Ride Creation
+
+The backend creates a Ride ID.
+
+↓
+
+### Step 2 – Acknowledgment
+
+Both apps send an acknowledgment confirming they received the ride details.
+
+↓
+
+### Step 3 – Mismatch Detection
+
+If one acknowledgment is missing within a defined timeout (e.g., 10–15 seconds), the server flags a synchronization mismatch.
+
+↓
+
+### Step 4 – Recovery Option
+
+Both apps display:
+
+**"Having trouble syncing your ride? Recover Ride."**
+
+Recovery methods may include:
+
+* Temporary QR Code
+* 6-digit Recovery Code
+* OTP verification
+
+↓
+
+### Step 5 – Ride Restored
+
+The app securely retrieves the ride information from the server without requiring cancellation or rebooking.
+
+---
+
+## Benefits
+
+* Reduces unnecessary ride cancellations.
+* Improves customer trust.
+* Provides a reliable fallback during network failures.
+* Decreases customer support requests.
+* Improves overall ride completion rates.
+
+---
+
+## Future Enhancements
+
+* Automatic recovery without user intervention.
+* AI-based detection of repeated synchronization failures.
+* Offline encrypted ride cache.
+* Bluetooth or Nearby Share fallback for extreme connectivity issues.
+
+---
+
+## Skills Demonstrated
+
+* Product Thinking
+* System Design
+* User Experience (UX)
+* Edge Case Analysis
+* Backend Workflow Design
+* Failure Recovery Design
+
+---
+
+## Disclaimer
+
+This is an independent educational product design case study created by a Computer Science Engineering student to explore possible improvements for ride-hailing applications. It is intended for learning and discussion purposes and is not affiliated with or endorsed by Rapido.
